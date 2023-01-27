@@ -1,0 +1,21 @@
+{
+  "count": 2,
+  "universities": [
+    {
+      "name": "Ege University",
+      "url_endpoint": "https://ebp.ege.edu.tr/DereceProgramlari/Detay/1/31/2626/932001",
+      "table_loop": "table.table-bordered > tbody > tr",
+      "course_ref": "td",
+      "course_href_detail": "td > a",
+      "course_name_ref": "td"
+    },
+    {
+      "name": "Dokuz Eylul University",
+      "url_endpoint": "https://ebp.ege.edu.tr/DereceProgramlari/Detay/1/31/2626/932001",
+      "table_loop": "table.table-bordered > tbody > tr",
+      "course_ref": "td",
+      "course_href_detail": "td > a",
+      "course_name_ref": "td"
+    }
+  ]
+}
