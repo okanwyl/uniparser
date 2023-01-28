@@ -5,7 +5,6 @@ export interface ParsedData {
   courseName: string;
 }
 
-// Should i parse with University Type?
 export type University = {
   name: string;
   url_endpoint: string;
@@ -13,4 +12,8 @@ export type University = {
   course_ref: string;
   course_href_detail: string;
   course_name_ref: string;
+  url_prefix_href: string;
+  course_code_index: string;
+  course_name_ref_index: string;
+  course_detail_index: string;
 };

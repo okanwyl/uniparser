@@ -5,12 +5,16 @@ export const extractCourses = (
   html: string,
   university: University
 ): ParsedData[] => {
-  const teachers: ParsedData[] = [];
+  const parsedArray: ParsedData[] = [];
   const $ = Cheerio.load(html);
 
   $(university.table_loop).each((_i, tbody) => {
     // check eq?
-    const courseCode = $(tbody).find(university.course_ref).eq(0).text().trim();
+    const courseCode = $(tbody)
+      .find(university.course_ref)
+      .eq(Number(university.course_code_index))
+      .text()
+      .trim();
     let hrefCourseDetail = $(tbody)
       .find(university.course_href_detail)
       .eq(0)
@@ -22,12 +26,19 @@ export const extractCourses = (
       hrefCourseDetail = "";
     }
     const courseName =
-      $(tbody).find(university.course_name_ref).eq(2).text().trim() ?? "";
+      $(tbody)
+        .find(university.course_name_ref)
+        .eq(Number(university.course_name_ref_index))
+        .text()
+        .trim() ?? "";
 
+    if (courseCode.includes("\t")) {
+      return;
+    }
     if (courseCode && hrefCourseDetail && courseName) {
-      teachers.push({ courseCode, hrefCourseDetail, courseName });
+      parsedArray.push({ courseCode, hrefCourseDetail, courseName });
     }
   });
 
-  return teachers;
+  return parsedArray;
 };
