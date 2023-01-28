@@ -10,9 +10,16 @@ export const fetchUniversityEndpoint = async (
   const courseHtml = await ioFetch(university.url_endpoint);
   const courses = extractCourses(courseHtml, university);
   for (const course of courses) {
-    const courseDetailURL = fullURLBuilder(university.url_endpoint, course);
+    const courseDetailURL = fullURLBuilder(
+      university.url_endpoint,
+      course,
+      university.url_prefix_href
+    );
     const courseDetailHtml = await ioFetch(courseDetailURL);
-    course.instructorName = extractCourseDetailPage(courseDetailHtml);
+    course.instructorName = extractCourseDetailPage(
+      courseDetailHtml,
+      Number(university.course_detail_index)
+    );
     delete course.hrefCourseDetail;
   }
   return courses;
