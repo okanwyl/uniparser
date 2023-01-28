@@ -1,6 +1,5 @@
 import axios from "axios";
 import { log } from "./log";
-import { COLORS } from "./log";
 
 export const ioFetch = async (url?: string): Promise<string> => {
   if (!url) {
@@ -17,7 +16,7 @@ export const ioFetch = async (url?: string): Promise<string> => {
     });
     return response.data;
   } catch (err) {
-    console.error("RED", "Get call failed");
+    log("RED", "Get call failed");
     return "";
   }
 };

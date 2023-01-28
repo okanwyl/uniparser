@@ -105,3 +105,6 @@ dist
 
 
 build/
+data.csv
+test.csv
+parsed.csv

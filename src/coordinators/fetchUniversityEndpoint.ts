@@ -9,8 +9,8 @@ export const fetchUniversityEndpoint = async (
 ): Promise<ParsedData[]> => {
   const courseHtml = await ioFetch(university.url_endpoint);
   const courses = extractCourses(courseHtml, university);
-  for (let course of courses) {
-    let courseDetailURL = fullURLBuilder(university.url_endpoint, course);
+  for (const course of courses) {
+    const courseDetailURL = fullURLBuilder(university.url_endpoint, course);
     const courseDetailHtml = await ioFetch(courseDetailURL);
     course.instructorName = extractCourseDetailPage(courseDetailHtml);
     delete course.hrefCourseDetail;

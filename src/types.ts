@@ -1,10 +1,8 @@
-import { type, userInfo } from "os";
-
 export interface ParsedData {
+  instructorName?: string;
   courseCode: string;
   hrefCourseDetail?: string;
   courseName: string;
-  instructorName?: string;
 }
 
 // Should i parse with University Type?
