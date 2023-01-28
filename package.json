@@ -18,7 +18,6 @@
     "@typescript-eslint/parser": "^5.49.0",
     "axios": "^1.2.4",
     "cheerio": "^1.0.0-rc.12",
-    "csv-writer": "^1.6.0",
     "eslint": "^8.32.0"
   },
   "scripts": {
