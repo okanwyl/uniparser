@@ -14,7 +14,8 @@ export const fetchUniversityEndpoint = async (
     const courseDetailHtml = await ioFetch(courseDetailURL);
     course.instructorName = extractCourseDetailPage(
       courseDetailHtml,
-      Number(university.course_detail_index)
+      Number(university.course_detail_index),
+      university.course_detail_html_tag_name
     );
     delete course.hrefCourseDetail;
   }
