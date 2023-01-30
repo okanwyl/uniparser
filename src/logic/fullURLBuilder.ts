@@ -1,17 +1,20 @@
-import { ParsedData } from "../types";
+import { ParsedData, University } from "../types";
 
 export function fullURLBuilder(
-  hostname: string,
-  href: ParsedData,
-  prefix: string
-): string {
-  const objectURL = new URL(hostname);
-  return (
-    objectURL.protocol +
-    "//" +
-    objectURL.hostname +
-    prefix +
-    "/" +
-    href.hrefCourseDetail
-  );
+  university: University,
+  href: ParsedData
+): string | undefined {
+  if (!university.university_href_includes_domain) {
+    const objectURL = new URL(university.url_endpoint);
+    return (
+      objectURL.protocol +
+      "//" +
+      objectURL.hostname +
+      university.url_prefix_href +
+      "/" +
+      href.hrefCourseDetail
+    );
+  } else {
+    return href.hrefCourseDetail;
+  }
 }
