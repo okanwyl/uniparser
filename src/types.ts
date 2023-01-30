@@ -7,6 +7,7 @@ export interface ParsedData {
 
 export type University = {
   name: string;
+  university_href_includes_domain: boolean;
   url_endpoint: string;
   table_loop: string;
   course_ref: string;
