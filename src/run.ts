@@ -21,7 +21,7 @@ async function main() {
     ioWriteFileCSV(filename, courses);
   }
   */
-  const inpUni: University = uniJSON[2];
+  const inpUni: University = uniJSON[0];
     const courses = await fetchUniversityEndpoint(inpUni);
     ioWriteFileCSV(filename, courses);
 
