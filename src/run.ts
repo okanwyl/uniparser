@@ -13,18 +13,11 @@ console.log("=== Node University Scraper ===");
 
 // @TODO learn how to parse json line by line and use
 async function main() {
-  
-  /*
   for (let i = 0; i < uniCount; i++) {
     const inpUni: University = uniJSON[i];
     const courses = await fetchUniversityEndpoint(inpUni);
     ioWriteFileCSV(filename, courses);
   }
-  */
-  const inpUni: University = uniJSON[0];
-    const courses = await fetchUniversityEndpoint(inpUni);
-    ioWriteFileCSV(filename, courses);
-
 }
 
 main();
