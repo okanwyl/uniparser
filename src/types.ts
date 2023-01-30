@@ -17,4 +17,6 @@ export type University = {
   course_name_ref_index: string;
   course_detail_index: string;
   university_href_includes_domain: boolean;
+  course_detail_html_tag_name: string;
+  course_detail_html_class_name: string;
 };

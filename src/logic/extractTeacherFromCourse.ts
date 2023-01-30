@@ -2,9 +2,10 @@ import Cheerio from "cheerio";
 
 export const extractCourseDetailPage = (
   html: string,
-  idx: number
+  idx: number,
+  tag_name: string
 ): string | undefined => {
   const $ = Cheerio.load(html);
-  const handled = $("body").find("p").eq(idx).text().trim();
+  const handled = $("body").find(tag_name).eq(idx).text().trim();
   return handled ? handled : undefined;
 };

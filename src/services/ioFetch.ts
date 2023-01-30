@@ -10,7 +10,7 @@ export const ioFetch = async (url?: string): Promise<string> => {
     const response = await axios.get(url, {
       responseType: "text",
       validateStatus: null,
-      timeout: 2000, // should i wait for 2s or 1s?
+      timeout: 4000, // should i wait for 2s or 1s?
       timeoutErrorMessage: "Get call failed",
       maxRate: 2,
     });
