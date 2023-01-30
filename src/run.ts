@@ -6,12 +6,14 @@ import { ioWriteFileCSV } from "./services/ioWriteCsv";
 // @TODO Consider using real arrays <ArrayBuffer>
 const uniJSON: University[] = inp.universities;
 const filename = "parsed.csv";
+const uniCount = uniJSON.length; //using this will mitigate future errors that could cause by addition or deduction of universities
+// and will be saving us time
 
 console.log("=== Node University Scraper ===");
 
 // @TODO learn how to parse json line by line and use
 async function main() {
-  for (let i = 0; i < inp.count; i++) {
+  for (let i = 0; i < uniCount; i++) {
     const inpUni: University = uniJSON[i];
     const courses = await fetchUniversityEndpoint(inpUni);
     ioWriteFileCSV(filename, courses);
