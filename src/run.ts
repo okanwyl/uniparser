@@ -13,11 +13,6 @@ const args = processArguments();
 
 console.log("=== Node University Scraper ===");
 
-// for (let i = 0; i < uniCount; i++) {
-//   const inpUni: University = uniJSON[i];
-//   const courses = await fetchUniversityEndpoint(inpUni);
-//   ioWriteFileCSV(filename, courses);
-// }
 // @TODO learn how to parse json line by line and use
 async function main() {
   if (args["university"] !== undefined) {
