@@ -8,7 +8,9 @@ import { ParsedData, University } from "../types";
 export const fetchUniversityEndpoint = async (
     university: University
 ): Promise<ParsedData[] | undefined> => {
-    const courseHtml: string | undefined = await ioFetch(university.url_endpoint);
+    const courseHtml: string | undefined = await ioFetch(
+        university.url_endpoint
+    );
     const slowFetchArray: ParsedData[] = [];
     if (courseHtml !== undefined) {
         let courses = extractCourses(courseHtml, university);
@@ -18,13 +20,14 @@ export const fetchUniversityEndpoint = async (
             return course;
         });
 
-        let idx: number = 0;
+        let idx = 0;
         courses = await Promise.all(
             courses.map(async (item) => {
-                const htmlPage: string | undefined = await ioFetch(item.hrefCourseDetail);
+                const htmlPage: string | undefined = await ioFetch(
+                    item.hrefCourseDetail
+                );
                 idx++;
                 if (htmlPage !== undefined) {
-
                     // Ege university specific
                     if (htmlPage.includes("Microsoft .NET Framework")) {
                         slowFetchArray.push(item);
@@ -46,8 +49,10 @@ export const fetchUniversityEndpoint = async (
             // wait 10.5 second
             delay(100000000);
             log("RED", true, "starting slow fetching");
-            for (let i of slowFetchArray) {
-                const htmlPage: string | undefined = await ioFetch(i.hrefCourseDetail);
+            for (const i of slowFetchArray) {
+                const htmlPage: string | undefined = await ioFetch(
+                    i.hrefCourseDetail
+                );
                 delay(5000);
                 if (htmlPage !== undefined) {
                     i.instructorName = extractCourseDetailPage(
@@ -55,24 +60,25 @@ export const fetchUniversityEndpoint = async (
                         university
                     );
                     if (i.instructorName == undefined) {
-                        log("RED", true, `Couldnt be able to extract instructor`);
+                        log(
+                            "RED",
+                            true,
+                            `Couldnt be able to extract instructor`
+                        );
                         log("RED", true, `${i.hrefCourseDetail}`);
                     } else {
                         courses.push(i);
                     }
-
                 }
             }
             return courses;
-        })
-
+        });
 
         return courses;
-
-    };
+    }
     return undefined;
-}
+};
 
 function delay(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise((resolve) => setTimeout(resolve, ms));
 }

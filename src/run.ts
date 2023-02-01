@@ -16,7 +16,7 @@ console.log("=== Node University Scraper ===");
 // @TODO learn how to parse json line by line and use
 async function main() {
     if (args["university"] !== undefined) {
-        const university: University | undefined = uniJSON.find(function(
+        const university: University | undefined = uniJSON.find(function (
             value
         ) {
             return value.initials == args["university"];
