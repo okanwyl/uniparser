@@ -16,14 +16,18 @@ console.log("=== Node University Scraper ===");
 // @TODO learn how to parse json line by line and use
 async function main() {
     if (args["university"] !== undefined) {
-        const university: University | undefined = uniJSON.find(function (
+        const university: University | undefined = uniJSON.find(function(
             value
         ) {
             return value.initials == args["university"];
         });
         if (university !== undefined) {
             const courses = await fetchUniversityEndpoint(university);
-            ioWriteFileCSV(filename, courses);
+            if (courses !== undefined) {
+                ioWriteFileCSV(filename, courses);
+            }
+            console.log("finised");
+            process.exit();
         } else {
             log("RED", false, "University is invalid");
         }
@@ -31,7 +35,9 @@ async function main() {
         for (let i = 0; i < uniCount; i++) {
             const inpUni: University = uniJSON[i];
             const courses = await fetchUniversityEndpoint(inpUni);
-            ioWriteFileCSV(filename, courses);
+            if (courses !== undefined) {
+                ioWriteFileCSV(filename, courses);
+            }
         }
     }
 }

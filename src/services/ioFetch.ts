@@ -1,9 +1,9 @@
 import axios from "axios";
 import { log } from "./log";
 
-export const ioFetch = async (url?: string): Promise<string> => {
+export const ioFetch = async (url?: string): Promise<string | undefined> => {
     if (!url) {
-        return "";
+        return undefined;
     }
     log("YELLOW", true, "fetching this url", url);
     try {
@@ -17,8 +17,8 @@ export const ioFetch = async (url?: string): Promise<string> => {
         return response.data;
     } catch (err) {
         if (axios.isAxiosError(err)) {
-            log("RED", true, `call failed response code ${err.response} `);
+            log("RED", true, `Get call failed: Response code ${err.response} `);
         }
-        return "";
+        return undefined;
     }
 };
