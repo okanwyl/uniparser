@@ -6,6 +6,14 @@ export enum COLORS {
 
 type LogColors = keyof typeof COLORS;
 
-export const log = (color: LogColors, ...msg: string[]) => {
-  console.log(new Date(), ">", COLORS[color], ...msg, "\x1b[0m");
+export const log = (
+  color: LogColors,
+  date: boolean,
+  ...msg: string[]
+): void => {
+  if (date) {
+    console.log(new Date(), ">", COLORS[color], ...msg, "\x1b[0m");
+  } else {
+    console.log(">", COLORS[color], ...msg, "\x1b{0m");
+  }
 };

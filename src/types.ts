@@ -6,6 +6,7 @@ export interface ParsedData {
 }
 
 export type University = {
+  initials: string;
   name: string;
   url_endpoint: string;
   table_loop: string;

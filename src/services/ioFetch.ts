@@ -5,7 +5,7 @@ export const ioFetch = async (url?: string): Promise<string> => {
   if (!url) {
     return "";
   }
-  log("YELLOW", "fetching this url", url);
+  log("YELLOW", true, "fetching this url", url);
   try {
     const response = await axios.get(url, {
       responseType: "text",
@@ -16,7 +16,7 @@ export const ioFetch = async (url?: string): Promise<string> => {
     });
     return response.data;
   } catch (err) {
-    log("RED", "Get call failed");
+    log("RED", true, "Get call failed");
     return "";
   }
 };
