@@ -1,6 +1,7 @@
 {
   "universities": [
     {
+      "initials": "ege",
       "name": "Ege University",
       "url_endpoint": "https://ebp.ege.edu.tr/DereceProgramlari/Detay/1/31/2626/932001",
       "table_loop": "table.table-bordered > tbody > tr",
@@ -15,6 +16,7 @@
       "teacher_path": "#wrapper > div > div > div > div > div > div > p:nth-child(17)"
     },
     {
+      "initials": "deu",
       "name": "Dokuz Eylul University",
       "url_endpoint": "https://debis.deu.edu.tr/ders-katalog/2021-2022/tr/bolum_1210_tr.html",
       "table_loop": "tbody > tr",
@@ -29,6 +31,7 @@
       "teacher_path": "body > div.main-wrapper > div.container > div.span-18.last > table:nth-child(12) > tbody > tr:nth-child(2) > td > p"
     },
     {
+      "initials": "iyte",
       "name": "Izmir High Technology Institute",
       "url_endpoint": "https://ceng.iyte.edu.tr/tr/egitim/lisans-programi/lisans-dersleri/",
       "table_loop": "tbody > tr",
@@ -43,6 +46,7 @@
       "teacher_path": "div > div.wpb_column.vc_col-sm-3 > div.iyte_ins-ass > div.stm-teacher-bio.stm-teacher-bio_trainer > div > div > div.stm-teacher-bio__title > a"
     },
     {
+      "initials": "yasar",
       "name": "Yasar University",
       "url_endpoint": "https://ce.yasar.edu.tr/dersler/",
       "table_loop": "tbody > tr",

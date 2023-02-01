@@ -14,11 +14,11 @@ export const ioWriteFileCSV = async (
 
   if (fs.existsSync(file)) {
     appendFile(file, convertedToCSV)
-      .then(() => log("GREEN", `Data writed to ${file}`))
-      .catch(() => log("RED", "I/O error"));
+      .then(() => log("GREEN", true, `Data writed to ${file}`))
+      .catch(() => log("RED", true, "I/O error"));
   } else {
     writeFile(file, convertedToCSV, {});
-    log("GREEN", `Data writed to ${file}`);
+    log("GREEN", true, `Data writed to ${file}`);
   }
 };
 
