@@ -6,20 +6,7 @@ export const extractCourseDetailPage = (
   university: University
 ): string | undefined => {
   const $ = Cheerio.load(html);
-  let handled;
-  if (university.course_detail_html_class_name) {
-    // handled = $("body").find("p").eq(idx).text().trim();
-    handled = $(university.course_detail_html_class_name)
-      .find("a")
-      .text()
-      .trim();
-  } else {
-    handled = $("body")
-      .find(university.course_detail_html_tag_name)
-      .eq(idx)
-      .text()
-      .trim();
-  }
+  const handled = $(university.teacher_path).text().trim();
 
   return handled ? handled : undefined;
 };
