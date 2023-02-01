@@ -19,10 +19,7 @@ export const fetchUniversityEndpoint = async (
     courses = await Promise.all(
         courses.map(async (item) => {
             const a: string = await ioFetch(item.hrefCourseDetail);
-            item.instructorName = extractCourseDetailPage(
-                a,
-                university
-            );
+            item.instructorName = extractCourseDetailPage(a, university);
             delete item.hrefCourseDetail;
             return item;
         })

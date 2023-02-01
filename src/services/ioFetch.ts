@@ -16,7 +16,9 @@ export const ioFetch = async (url?: string): Promise<string> => {
         });
         return response.data;
     } catch (err) {
-        log("RED", true, "Get call failed");
+        if (axios.isAxiosError(err)) {
+            log("RED", true, `call failed response code ${err.response} `);
+        }
         return "";
     }
 };
