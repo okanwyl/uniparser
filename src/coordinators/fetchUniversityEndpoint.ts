@@ -5,21 +5,28 @@ import { ioFetch } from "../services/ioFetch";
 import { ParsedData, University } from "../types";
 
 export const fetchUniversityEndpoint = async (
-  university: University
+    university: University
 ): Promise<ParsedData[]> => {
-  const courseHtml = await ioFetch(university.url_endpoint);
-  const courses = extractCourses(courseHtml, university);
-  for (const course of courses) {
-    const courseDetailURL = fullURLBuilder(university, course);
-    const courseDetailHtml = await ioFetch(courseDetailURL);
+    const courseHtml = await ioFetch(university.url_endpoint);
+    let courses = extractCourses(courseHtml, university);
 
-    course.instructorName = extractCourseDetailPage(
-      courseDetailHtml,
-      Number(university.course_detail_index),
-      university
+    // build all urls
+    courses = courses.map((course) => {
+        course.hrefCourseDetail = fullURLBuilder(university, course);
+        return course;
+    });
+
+    courses = await Promise.all(
+        courses.map(async (item) => {
+            const a: string = await ioFetch(item.hrefCourseDetail);
+            item.instructorName = extractCourseDetailPage(
+                a,
+                Number(university.course_detail_index),
+                university
+            );
+            return item;
+        })
     );
 
-    delete course.hrefCourseDetail;
-  }
-  return courses;
+    return courses;
 };
