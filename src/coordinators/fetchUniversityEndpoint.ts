@@ -18,7 +18,7 @@ export const fetchUniversityEndpoint = async (
       Number(university.course_detail_index),
       university
     );
-    console.log(course);
+    
 
     delete course.hrefCourseDetail;
   }
