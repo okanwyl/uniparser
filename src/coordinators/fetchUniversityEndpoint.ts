@@ -21,9 +21,9 @@ export const fetchUniversityEndpoint = async (
             const a: string = await ioFetch(item.hrefCourseDetail);
             item.instructorName = extractCourseDetailPage(
                 a,
-                Number(university.course_detail_index),
                 university
             );
+            delete item.hrefCourseDetail;
             return item;
         })
     );

@@ -11,7 +11,6 @@
             "url_prefix_href": "",
             "course_code_index": "0",
             "course_name_ref_index": "2",
-            "course_detail_index": "2",
             "university_href_includes_domain": false,
             "teacher_path": "#wrapper > div > div > div > div > div > div > p:nth-child(17)"
         },
@@ -26,7 +25,6 @@
             "url_prefix_href": "/ders-katalog/2021-2022/tr/",
             "course_code_index": "2",
             "course_name_ref_index": "3",
-            "course_detail_index": "12",
             "university_href_includes_domain": false,
             "teacher_path": "body > div.main-wrapper > div.container > div.span-18.last > table:nth-child(12) > tbody > tr:nth-child(2) > td > p"
         },
@@ -41,7 +39,6 @@
             "url_prefix_href": "",
             "course_code_index": "0",
             "course_name_ref_index": "1",
-            "course_detail_index": "0",
             "university_href_includes_domain": true,
             "teacher_path": "div > div.wpb_column.vc_col-sm-3 > div.iyte_ins-ass > div.stm-teacher-bio.stm-teacher-bio_trainer > div > div > div.stm-teacher-bio__title > a"
         },
@@ -56,7 +53,6 @@
             "url_prefix_href": "",
             "course_code_index": "1",
             "course_name_ref_index": "2",
-            "course_detail_index": "0",
             "university_href_includes_domain": true,
             "teacher_path": "#main-content > div > div > div > div > div > ul > li:nth-child(1) > strong"
         }
