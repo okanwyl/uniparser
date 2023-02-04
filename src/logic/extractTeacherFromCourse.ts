@@ -1,11 +1,8 @@
 import Cheerio from "cheerio";
 import { University } from "../types";
-export const extractCourseDetailPage = (
-    html: string,
-    university: University
-): string | undefined => {
-    const $ = Cheerio.load(html);
-    const handled = $(university.teacher_path).text().trim();
+export const extractCourseDetailPage = (html: string, university: University): string | undefined => {
+  const $ = Cheerio.load(html);
+  const handled = $(university.teacher_path).text().trim();
 
-    return handled ? handled : undefined;
+  return handled ? handled : undefined;
 };
